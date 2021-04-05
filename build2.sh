@@ -1,5 +1,10 @@
 #!/bin/bash 
 
+#################################################################
+# Override netlify.toml with centrally-hosted netlify.toml file #
+#################################################################
+curl https://raw.githubusercontent.com/opengovsg/isomer-build/master/netlify.toml -o /opt/build/repo/netlify.toml
+
 ###############################################################
 # Generate build script for Jekyll v4 collections structure   #
 ###############################################################
@@ -16,4 +21,6 @@ while getopts "e:" opt; do
   esac
 done
 
+# netlify build
 echo $env
+JEKYLL_ENV=$env jekyll build --config _config.yml",$var"
