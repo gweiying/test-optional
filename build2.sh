@@ -22,5 +22,5 @@ while getopts "e:" opt; do
 done
 
 # netlify build
-echo $env
+echo "env:"$env
 JEKYLL_ENV=$env jekyll build --config _config.yml",$var"
